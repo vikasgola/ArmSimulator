@@ -10,10 +10,15 @@ fstream input,output;
 int r[16];
 
 void show_register(){
+    cout<<"\t";
     for(int i=0;i<16;i++){
-        output<<"r"<<i<<" = "<<r[i]<<" | ";
+        cout<<"r"<<i<<" = "<<r[i]<<" | ";
+        if(i==7) {
+            cout<<endl;
+            cout<<"\t";
+        }        
     }
-    output<<endl;
+    cout<<endl;
 }
 
 void error_show(){
@@ -21,7 +26,6 @@ void error_show(){
 }
 
 bool word_checker(string check_word){
-
 
     return true;
 }
@@ -62,7 +66,7 @@ int main(){
     fileread();
 
     for(int i=0;i<instii.size();i++){
-        output<<instii.at(i)<<endl;
+        cout<<i+1<<": "<<instii.at(i)<<endl;
         show_register();
     }
     return 0;
