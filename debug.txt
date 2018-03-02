@@ -1,0 +1,2 @@
+=======This is debug file for checking errors and how is code working and doing it's work.=======
+Line 1: .equ 
