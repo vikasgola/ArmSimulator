@@ -1,11 +1,10 @@
 	.equ SWI_Exit, 0x11
-
+	
 	.text
 
 	mov r1, #40
 	mov r2, #1
 	ldr r3, =AA	
-
 
 StoreIntegers:
 	str r2, [r3]	
@@ -13,7 +12,7 @@ StoreIntegers:
 	add r2, r2, #1 		
 	sub r1, r1, #1 		
 	cmp r1, #0 	        
-	bne StoreIntegers	
+	bne StoreIntegers
 
 	mov r1, #40
 	mov r4, #0
@@ -26,10 +25,10 @@ LoadAddIntegers:
 	sub r1, r1, #1    	
 	cmp r1, #0        	
 	bne LoadAddIntegers	
-
 	swi SWI_Exit		
 
 	.data
 AA:	
-	.space 40
+.space 40
 	.end
+

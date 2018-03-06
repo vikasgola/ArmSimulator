@@ -48,6 +48,8 @@ class arm_array{
 };
 vector <arm_array> arm_lab;     // store my labels here
 string box_type;                // store what type of box it is text or data
+clock_t tStart;                 // keeping time to execute
+
 
 // ================================ functions list============================================
 
@@ -261,12 +263,16 @@ void ldrstr(char k , string do_this[]){
             }
         }else if(do_this[2][0] =='[' && do_this[2][do_this[2].length()-1] ==']'){
             r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = memory[(r[stoi(do_this[2].substr(2,do_this[2].length()-2))] -1000000)/4 ];
+        }else if(do_this[2][0] =='[' && do_this[3][do_this[3].length()-1] ==']' && do_this[3][0] =='#'){
+            r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = memory[(r[stoi(do_this[2].substr(2,do_this[2].length()-1)) + stoi(do_this[3].substr(1,do_this[2].length()-1))] -1000000)/4 ];
         }else{
             error_show( (r[15]-1000)/4+1+empty , instii_complete.at((r[15]-1000)/4).length() );                                    
         }
     }else if(k == 's'){
         if(do_this[2][0] =='[' && do_this[2][do_this[2].length()-1] ==']'){
             memory[(r[stoi(do_this[2].substr(2,do_this[2].length()-2))]-1000000)/4] = r[stoi(do_this[1].substr(1,do_this[1].length()-1))];
+        }else if(do_this[2][0] =='[' && do_this[3][do_this[3].length()-1] ==']' && do_this[3][0] =='#'){
+            memory[(r[stoi(do_this[2].substr(2,do_this[2].length()-2))]-1000000)/4 + stoi(do_this[3].substr(1,do_this[2].length()-1))/4] = r[stoi(do_this[1].substr(1,do_this[1].length()-1))];
         }else{
             error_show( (r[15]-1000)/4+1+empty , instii_complete.at((r[15]-1000)/4).length() );                                    
         }
@@ -366,7 +372,7 @@ void start_instruction(vector <int> s ,vector <int> e,const string instruc){
         if(str_is(do_this[0] ,"swi","SWI")){                    // swi exit
             if(do_this[1] == "SWI_Exit" ){
                 show_details();
-                cout<<"\t Total Instructions executed: "<<total_instruction<<"\t Empty Lines: "<<empty<<" \t Total Lines: "<<instii_complete.size()<<endl;
+                cout<<"\t Total Instructions executed: "<<total_instruction<<"\t Empty Lines: "<<empty<<" \t Total Lines: "<<instii_complete.size()<<"\t Execution Time "<<(double)(clock() - tStart)/CLOCKS_PER_SEC<<endl;
 
                 exit(EXIT_SUCCESS);
             }
@@ -447,7 +453,7 @@ void start_instruction(vector <int> s ,vector <int> e,const string instruc){
                 r[15] = 1000 + 4 *here;
                 box_type = ".text";
         }else if(do_this[0] == ".end" && box_type == ".text"){
-            cout<<"\t Total Instructions executed: "<<total_instruction<<"\t Empty Lines: "<<empty<<" \t Total Lines: "<<instii_complete.size()<<endl;
+            cout<<"\t Total Instructions executed: "<<total_instruction<<"\t Empty Lines: "<<empty<<" \t Total Lines: "<<instii_complete.size()<<"\t Execution Time "<<(double)(clock() - tStart)/CLOCKS_PER_SEC<<endl;
             exit(EXIT_SUCCESS);
         }
         r[15] = r[15]+4; 
@@ -531,6 +537,8 @@ bool fileread(){
 
 // main function
 int main(){
+    tStart = clock();
+
     input.open("input.txt",ios::in);                // input file
     debug.open("debug.txt",ios::out);
     
