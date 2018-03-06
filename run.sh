@@ -3,7 +3,6 @@
 rm simulator
 
 echo "Compiling..."
-cp input.txt input2.txt
 g++ main.cpp -std=c++11 -o simulator
 
 if [ $? -eq 0 ]; then
