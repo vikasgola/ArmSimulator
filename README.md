@@ -61,11 +61,9 @@ bl labelname
 	.equ SWI_Exit, 0x11
 	
 	.text
-
 	mov r1, #40
 	mov r2, #1
 	ldr r3, =AA	
-
 StoreIntegers:
 	str r2, [r3]	
 	add r3, r3, #4 		
@@ -73,11 +71,9 @@ StoreIntegers:
 	sub r1, r1, #1 		
 	cmp r1, #0 	        
 	bne StoreIntegers
-
 	mov r1, #40
 	mov r4, #0
 	ldr r3, =AA 
-
 LoadAddIntegers:
 	ldr r2, [r3]     	
 	add r4, r4, r2          
@@ -86,7 +82,6 @@ LoadAddIntegers:
 	cmp r1, #0        	
 	bne LoadAddIntegers	
 	swi SWI_Exit		
-
 	.data
 AA:	
 .space 40
