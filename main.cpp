@@ -14,22 +14,22 @@ using namespace std;
 // CMP                      done
 // BNE                      done
 // BGE                      done
-// B                        
+// B                        done
 // BL                       done
 // MOV                      done
 // pc                       done
-// lr                       
+// lr                       done
 
 // ======================================== Declaring some global varibles=================================
-vector <string> instii_complete;
-fstream input,debug;
+vector <string> instii_complete;    // stores all lines of code(but not empty lines)
+fstream input,debug;                // input file is code and debug file is for debugging
 int r[16];               // assuming intial value of all registers to 0.
     
 int memory[100];         // memory of 100 words
 bool cmp_result;        // storing result of cmp instruction for next instruction
 
 short int cmp;          // compareble values storage
-vector <string> labels;
+vector <string> labels;         // stores labels name of functions
 vector <int> labelsid;          // labels name storage
 int empty =0;                   // counter  for empty lines
 int total_instruction = 0;      // total instructions count
@@ -47,7 +47,7 @@ class arm_array{
     }
 };
 vector <arm_array> arm_lab;     // store my labels here
-string box_type;
+string box_type;                // store what type of box it is text or data
 
 // ================================ functions list============================================
 
@@ -67,6 +67,9 @@ bool instructions_checker(string checking);
 string remove_space(string correct);
 bool fileread();
 void addsubmul(char k,string do_this[]);
+void ldrstr(char k , string do_this[]);
+void bnebge(char k , string do_this[]);
+
 
 //  ========================= functions declartions start=======================================
 
@@ -92,7 +95,7 @@ void show_register(){
     cout<<endl<<endl<<endl;
 }
 
-// showing memory for memory related istructions
+// showing memory for memory related istructions                        assuming memory starts from 1000000
 void show_memory(){
     cout<<"\t\t\t Memory Addresses: stored Value"<<endl;
     for(int i =0;i<arm_lab.at(arm_lab.size()-1).end;i++){
@@ -113,23 +116,28 @@ void show_cmp_result(){
     else 
         cout<<"\tcmp result = "<<"true"<<endl;
 }
+
+
 //  syntax error handling
 void error_show(int row,int col){
     cout<<"Syntax error at line: "<<row<<" and column: "<<col<<endl;
     exit(EXIT_FAILURE);
 }
 
+
+// shows the registers and memories after each instruction
 void show_details(){
         cout<<r[15]<<": "<<instii_complete.at((r[15]-1000)/4)<<endl;
         
         if(str_is(instii_complete.at((r[15]-1000)/4 ).substr(0,3),"bne","BNE") || str_is(instii_complete.at((r[15]-1000)/4).substr(0,3),"bge","BGE")){
-            show_cmp_result();
+            show_cmp_result();                                                                      // showing compare result only if there is any cmp
         }else if(str_is(instii_complete.at((r[15]-1000)/4 ).substr(0,3),"ldr","LDR") || str_is(instii_complete.at((r[15]-1000)/4 ).substr(0,3),"str","STR")){
-            show_memory();
+            show_memory();                                                                          // showing memory only in case of load and store
         }
 
         show_register();
 }
+
 
 // checking for characters which are not possible in instructions
 bool not_possible_chars(char c){
@@ -154,7 +162,6 @@ bool word_check(string check_word){
             return false;
         }
     }
-    
     return true;
 }
 
@@ -176,7 +183,7 @@ bool word_seprators(char t){
 }
 
 
-//  addition, substraction, mov and multiplication instruction handling
+//  addition, substraction, compare , mov and multiplication instruction handling
 void addsubmul(char k,string do_this[]){
     if(k == '+'){
         if(do_this[2][0] =='r' && do_this[3][0] =='r' ){
@@ -271,9 +278,9 @@ void ldrstr(char k , string do_this[]){
 
 
 
-// bne and bge instructions handling
+//b, bl, bne and bge instructions handling
 void bnebge(char k , string do_this[]){
-    if(k == 'n'){
+    if(k == 'n'){                                           // BNE ===========
         if(cmp != 0){
             cmp_result = true;            
             debug<<endl<<"\t\t\t Going back to top\t\t\t"<<endl;
@@ -290,7 +297,7 @@ void bnebge(char k , string do_this[]){
             show_details();            
             r[15] = r[15] + 4;
         }
-    }else if(k == 'g'){
+    }else if(k == 'g'){                                        // BGE=============
         if(cmp >= 0){
             cmp_result = true;
             debug<<endl<<"\t\t\t Going back to top\t\t\t"<<endl;
@@ -308,7 +315,7 @@ void bnebge(char k , string do_this[]){
             show_details();            
             r[15] = r[15] + 4;
         }
-    }else if(k == 'b'){
+    }else if(k == 'b'){                                         // B==================
             // ptrdiff_t here = distance(labels.begin() , find(labels.begin(),labels.end(),do_this[1]));
             int m;
             for(int i=0;i<instii_complete.size();i++){
@@ -325,7 +332,7 @@ void bnebge(char k , string do_this[]){
             show_details();
             r[15] = 1000 + m*4;
 
-    }else if(k== 'l'){
+    }else if(k== 'l'){                                               //BL========================
         r[14] = r[15] + 4;
         int m;
         for(int i=0;i<instii_complete.size();i++){
@@ -356,7 +363,7 @@ void start_instruction(vector <int> s ,vector <int> e,const string instruc){
     
     // box type is text
     if(box_type == ".text" && do_this[0] != ".data" && do_this[0] != ".end" ){
-        if(str_is(do_this[0] ,"swi","SWI")){                    // swi class handling
+        if(str_is(do_this[0] ,"swi","SWI")){                    // swi exit
             if(do_this[1] == "SWI_Exit" ){
                 show_details();
                 cout<<"\t Total Instructions executed: "<<total_instruction<<"\t Empty Lines: "<<empty<<" \t Total Lines: "<<instii_complete.size()<<endl;
@@ -384,8 +391,8 @@ void start_instruction(vector <int> s ,vector <int> e,const string instruc){
             ldrstr('s',do_this);
         }else if(str_is(do_this[0],"b","B")){
             bnebge('b',do_this);
-        // }else if(str_is(do_this[0],"bl","BL")){
-        //     bnebge('l',do_this);
+        }else if(str_is(do_this[0],"bl","BL")){
+            bnebge('l',do_this);
         }else if( do_this[0][do_this[0].length()-1] ==':'){
          if(s.size()==1){
             labels.push_back(do_this[0].substr(0,do_this[0].length()-1) );          //labels names saving 
@@ -422,7 +429,7 @@ void start_instruction(vector <int> s ,vector <int> e,const string instruc){
             
         r[15] = r[15] + 4;         
         
-    }else if(do_this[0][0] == '.' ){ // change box type 
+    }else if(do_this[0][0] == '.' ){                                    // change box type 
         if(do_this[0] == ".equ" ){
             //    here equ like instruction
         }else if(do_this[0] == ".text" ){
@@ -433,7 +440,7 @@ void start_instruction(vector <int> s ,vector <int> e,const string instruc){
             }else 
                 box_type = ".text";
 
-        }else if(do_this[0] == ".data" ){
+        }else if(do_this[0] == ".data" ){                       // always doing work first with .data
             box_type = ".data";
         }else if(do_this[0] == ".end" && box_type == ".data"){
                 ptrdiff_t here = distance(instii_complete.begin() , find(instii_complete.begin(),instii_complete.end(),".text"));
@@ -478,7 +485,7 @@ bool instructions_checker(string checking){
     }
 
     if(s.size() == e.size()){
-        pushwordinfo(s,e);
+        pushwordinfo(s,e);                                      // storing each work start and end point in line
         return true;
     }else {
         debug<<"Something wrong happen!"<<endl;
@@ -506,13 +513,13 @@ bool fileread(){
     while(!input.eof()){
         string temp;
         getline(input,temp);    // reading each line from input file one by one
-        temp = remove_space(temp);
+        temp = remove_space(temp);                                          // removing extra space in starting 
 
-        if(temp.empty()){
+        if(temp.empty()){                                   // not storing the blank lines
             empty++;
             continue;
         }
-        if(!instructions_checker(temp)){
+        if(!instructions_checker(temp)){                    // sending instruction for checkig error
             break;
         }
         instii_complete.push_back(temp);     // adding in instructions list
@@ -524,16 +531,16 @@ bool fileread(){
 
 // main function
 int main(){
-    input.open("input.txt",ios::in);        
+    input.open("input.txt",ios::in);                // input file
     debug.open("debug.txt",ios::out);
     
     debug<<"=======This is debug file for checking errors and how is code working and doing it's work.======="<<endl;
 
-    if(!fileread()){
+    if(!fileread()){                                // reading file 
         return -1;
     }
 
-    r[15] = 1000;
+    r[15] = 1000;                                   // starting value of pc register
 
     // start working
     while((r[15]-1000)/4 < instii_complete.size()){

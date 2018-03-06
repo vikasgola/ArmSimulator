@@ -1,14 +1,1057 @@
 =======This is debug file for checking errors and how is code working and doing it's work.=======
 Line 1000: .equ SWI_Exit, 0x11
 Line 1004: .text
-Line 1104: AA:	
-Line 1108: .space 40
-Line 1112: .end
+Line 1096: AA:	
+Line 1100: .space 40
+Line 1104: .end
 Line 1008: mov r1, #40
 			 Do: =
 Line 1012: mov r2, #1
 			 Do: =
 Line 1016: ldr r3, =AA	
-Line 1020: b exit
-Line 1092: exit:
-Line 1096: swi SWI_Exit		
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+			 Going back to top			
+Line 1020: StoreIntegers:
+Line 1024: str r2, [r3]	
+Line 1028: add r3, r3, #4 		
+			 Do: +
+Line 1032: add r2, r2, #1 		
+			 Do: +
+Line 1036: sub r1, r1, #1 		
+			 Do: -
+Line 1040: cmp r1, #0 	        
+			 Do: c
+Line 1044: bne StoreIntegers	
+
+============== loop finished=========
+Line 1048: mov r1, #40
+			 Do: =
+Line 1052: mov r4, #0
+			 Do: =
+Line 1056: ldr r3, =AA 
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+			 Going back to top			
+Line 1060: LoadAddIntegers:
+Line 1064: ldr r2, [r3]     	
+Line 1068: add r4, r4, r2          
+			 Do: +
+Line 1072: add r3, r3, #4   	
+			 Do: +
+Line 1076: sub r1, r1, #1    	
+			 Do: -
+Line 1080: cmp r1, #0        	
+			 Do: c
+Line 1084: bne LoadAddIntegers	
+
+============== loop finished=========
+Line 1088: swi SWI_Exit		
