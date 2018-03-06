@@ -14,8 +14,8 @@ using namespace std;
 // CMP                      done
 // BNE                      done
 // BGE                      done
-// B
-// BL
+// B                        
+// BL                       done
 // MOV                      done
 // pc                       done
 // lr                       
@@ -54,6 +54,8 @@ class arm_array{
 };
 vector <arm_array> arm_lab;
 
+// functions list
+bool instructions_checker(string checking,int i);
 
 
 // showing all registers registers 
@@ -79,9 +81,6 @@ void show_memory(){
     }
     cout<<endl<<endl;
 }
-
-// functions list
-bool instructions_checker(string checking,int i);
 
 // showing important message related to instructions
 void message_show(string s){
@@ -203,6 +202,10 @@ void bnebge(char k , string do_this[]){
             cmp_result = true;            
             debug<<endl<<"\t\t\t Going back to top\t\t\t"<<endl;
             ptrdiff_t here = distance(labels.begin() , find(labels.begin(),labels.end(),do_this[1]));
+            if(!(here < labels.size() )){
+                message_show("label not found");
+                exit(EXIT_FAILURE);
+            }
             for(int i = labelsid.at(here) + 1; i<instii.size();i++){
                 instructions_checker(instii.at(i),i);
             }
@@ -216,6 +219,11 @@ void bnebge(char k , string do_this[]){
             cmp_result = true;
             debug<<endl<<"\t\t\t Going back to top\t\t\t"<<endl;
             ptrdiff_t here = distance(labels.begin() , find(labels.begin(),labels.end(),do_this[1]));
+            if(!(here < labels.size() )){
+                message_show("label not found");
+                exit(EXIT_FAILURE);
+            }
+
             for(int i = labelsid.at(here) + 1; i<instii.size();i++){
                 instructions_checker(instii.at(i),i);
             }
@@ -224,6 +232,17 @@ void bnebge(char k , string do_this[]){
             cmp_result = false;
             debug<<"=====loop finished====="<<endl;
         }
+    }else if(k == 'b'){
+            ptrdiff_t here = distance(labels.begin() , find(labels.begin(),labels.end(),do_this[1]));
+            if(!(here < labels.size() )){
+                message_show("label not found");
+                exit(EXIT_FAILURE);
+            }
+
+            message_show("currently not working. back soon");
+            exit(EXIT_SUCCESS);
+    }else if(k== 'l'){
+
     }
 }
 
@@ -283,7 +302,12 @@ void start_instruction(vector <int> s ,vector <int> e,const string instruc){
         ldrstr('l',do_this);
     }else if(str_is(do_this[0],"str","STR")){
         ldrstr('s',do_this);
-    }else if( do_this[0][do_this[0].length()-1] ==':'){
+    }else if(str_is(do_this[0],"b","B")){
+        bnebge('b',do_this);
+    }else if(str_is(do_this[0],"bl","BL")){
+        bnebge('l',do_this);
+    }
+    else if( do_this[0][do_this[0].length()-1] ==':'){
          if(s.size()==1){
             labels.push_back(do_this[0].substr(0,do_this[0].length()-1) );
             labelsid.push_back( instii.size() );
@@ -342,7 +366,7 @@ bool instructions_checker(string checking,int i){
         show_memory();
     }
     
-    r[15]=i+1;
+    r[15]=1000+4*i+4;
     
     show_register();
     debug<<endl;
@@ -425,7 +449,7 @@ bool fileread(){
             show_memory();
         }
         t++;
-        r[15]=t;
+        r[15]=1000+4*t;
         total_instruction++;
 
         show_register();
