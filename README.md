@@ -3,7 +3,18 @@ Basic Instructions Arm Simulator for Arm.
 
 # Use
 Go to main folder.
+
+	----Compilation Process------ 
 open terminal and type "./run.sh".
+
+	----Only run-----------
+open terminal and type "./simulator".
+
+Your can give your input file name(Program file name on run time).
+
+Whole output of code can be viewed on output file named output.txt
+
+You can also check the debug file named as debug.txt.
 
 # Availability
 

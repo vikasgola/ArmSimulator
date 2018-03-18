@@ -10,7 +10,7 @@ Line 1012: mov r2, #1
 			 Do: =
 Line 1016: ldr r3, =AA	
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -23,7 +23,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -36,7 +36,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -49,7 +49,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -62,7 +62,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -75,7 +75,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -88,7 +88,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -101,7 +101,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -114,7 +114,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -127,7 +127,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -140,7 +140,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -153,7 +153,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -166,7 +166,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -179,7 +179,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -192,7 +192,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -205,7 +205,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -218,7 +218,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -231,7 +231,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -244,7 +244,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -257,7 +257,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -270,7 +270,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -283,7 +283,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -296,7 +296,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -309,7 +309,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -322,7 +322,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -335,7 +335,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -348,7 +348,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -361,7 +361,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -374,7 +374,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -387,7 +387,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -400,7 +400,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -413,7 +413,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -426,7 +426,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -439,7 +439,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -452,7 +452,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -465,7 +465,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -478,7 +478,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -491,7 +491,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -504,7 +504,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -517,7 +517,7 @@ Line 1044: bne StoreIntegers
 
 			 Going back to top			
 Line 1020: StoreIntegers:
-Line 1024: str r2, [r3]	
+Line 1024: str r2, [r3]
 Line 1028: add r3, r3, #4 		
 			 Do: +
 Line 1032: add r2, r2, #1 		
@@ -529,6 +529,8 @@ Line 1040: cmp r1, #0
 Line 1044: bne StoreIntegers
 
 ============== loop finished=========
+
+Loop count: 39
 Line 1048: mov r1, #40
 			 Do: =
 Line 1052: mov r4, #0
@@ -544,7 +546,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -557,7 +559,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -570,7 +572,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -583,7 +585,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -596,7 +598,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -609,7 +611,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -622,7 +624,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -635,7 +637,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -648,7 +650,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -661,7 +663,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -674,7 +676,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -687,7 +689,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -700,7 +702,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -713,7 +715,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -726,7 +728,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -739,7 +741,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -752,7 +754,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -765,7 +767,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -778,7 +780,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -791,7 +793,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -804,7 +806,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -817,7 +819,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -830,7 +832,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -843,7 +845,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -856,7 +858,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -869,7 +871,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -882,7 +884,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -895,7 +897,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -908,7 +910,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -921,7 +923,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -934,7 +936,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -947,7 +949,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -960,7 +962,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -973,7 +975,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -986,7 +988,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -999,7 +1001,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -1012,7 +1014,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -1025,7 +1027,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -1038,7 +1040,7 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 			 Going back to top			
 Line 1060: LoadAddIntegers:
@@ -1051,7 +1053,9 @@ Line 1076: sub r1, r1, #1
 			 Do: -
 Line 1080: cmp r1, #0        	
 			 Do: c
-Line 1084: bne LoadAddIntegers	
+Line 1084: bne LoadAddIntegers
 
 ============== loop finished=========
+
+Loop count: 78
 Line 1088: swi SWI_Exit		
