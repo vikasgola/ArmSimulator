@@ -6,7 +6,7 @@ Go to main folder.
 
 ----Compilation Process------ 
 
-open terminal and type "./run.sh".
+open terminal and type "./run.sh" or "sh run.sh".
 
 ----Only run-----------
 
@@ -14,8 +14,9 @@ open terminal and type "./simulator".
 
 There is two modes to run your code one is to 'Run' which will completly run your code and give output live and also saves the output after each instruction in output.txt file. The other mode is 'Debug' mode which will run live one by one instruction and show you output after each instruction. 
 
-Your can give your input file name(Program file name on run time). Whole output of code can be viewed on output file named output.txt. You can also check the debug file named as debug.txt.
+Code detects your hardware and on the basis of your processor frequency it calculates the total arm code run time using given latency which are given in latency.txt.
 
+Your can give your input file name(Program file name on run time). Whole output of code can be viewed on output file named output.txt. You can also check the debug file named as debug.txt. It is recomended to use terminal in full screen for better experience.
 
 # Availability
 

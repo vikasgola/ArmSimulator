@@ -195,8 +195,8 @@ void bye(){
     cout<<"Register Details: "<<endl;
     show_register();
 
-    output<<" Total Instructions executed: "<<total_instruction<<" \t Total cycles: "<<total_cycles<<"\t Empty Lines: "<<empty<<" \n Total Lines: "<<instii_complete.size()+empty<<" \t Execution Time "<<(double)(clock() - tStart)/CLOCKS_PER_SEC<<"\t Average Instruction per cycle: "<<(float)total_instruction/total_cycles<<endl;
-    cout<<" Total Instructions executed: "<<total_instruction<<" \t Total cycles: "<<total_cycles<<"\t Empty Lines: "<<empty<<" \n Total Lines: "<<instii_complete.size()+empty<<" \t Execution Time "<<(double)(clock() - tStart)/CLOCKS_PER_SEC<<"\t Average Instruction per cycle: "<<(float)total_instruction/total_cycles<<endl;
+    output<<" Total Instructions executed: "<<total_instruction<<" \t Total cycles: "<<total_cycles<<"\t Empty Lines: "<<empty<<" \n Total Lines: "<<instii_complete.size()+empty<<" \t Execution Time(s) "<<(double)(clock() - tStart)/CLOCKS_PER_SEC<<"\t Average Instruction per cycle: "<<(float)total_instruction/total_cycles<<endl;
+    cout<<" Total Instructions executed: "<<total_instruction<<" \t Total cycles: "<<total_cycles<<"\t Empty Lines: "<<empty<<" \n Total Lines: "<<instii_complete.size()+empty<<" \t Execution Time(s) "<<(double)(clock() - tStart)/CLOCKS_PER_SEC<<"\t Average Instruction per cycle: "<<(float)total_instruction/total_cycles<<endl;
     
     cout<<endl;
 

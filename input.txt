@@ -2,7 +2,7 @@
 	
 	.text
 
-	mov r1, #40
+	mov r1, #30.00
 	mov r2, #1
 	ldr r3, =AA	
 
@@ -14,7 +14,7 @@ StoreIntegers:
 	cmp r1, #0 	        
 	bne StoreIntegers
 
-	mov r1, #40
+	mov r1, #30
 	mov r4, #0
 	ldr r3, =AA 
 
@@ -30,6 +30,6 @@ LoadAddIntegers:
 
 	.data
 AA:	
-.space 40
+.space 30
 	.end
 
