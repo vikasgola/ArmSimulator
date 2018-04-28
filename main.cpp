@@ -4,6 +4,7 @@
 #include<vector>
 #include<map>
 #include<string>
+#include"functions.h"
 
 using namespace std;
 
@@ -29,7 +30,7 @@ int r[16];               // assuming intial value of all registers to 0.
     
 int memory[100],pause;         // memory of 100 words
 bool cmp_result,lat = true;        // storing result of cmp instruction for next instruction
-string mode = "Run";
+string mode = "run";
 
 short int cmp;          // compareble values storage
 vector <string> labels;         // stores labels name of functions
@@ -58,34 +59,9 @@ int total_cycles = 0;           // total cycles in code
 map <string, int> lat_values,latency_total_instru;
 string proc,model;
 
-// ================================ functions list============================================
-
-void pushwordinfo(vector<int> l,vector<int> m);
-void show_register();
-void show_memory();
-void message_show(string s);
-void show_cmp_result();
-void error_show(int row,int col);
-void show_details();
-bool not_possible_chars(char c);
-bool word_check(string check_word);
-bool str_is(string st,string li,string li2);
-bool word_seprators(char t);
-void start_instruction(vector <int> s ,vector <int> e,const string instruc);
-bool instructions_checker(string checking);
-string remove_space(string correct);
-bool fileread();
-void addsubmul(char k,string do_this[]);
-void ldrstr(char k , string do_this[]);
-void bnebge(char k , string do_this[]);
 
 //  ========================= functions declartions start=======================================
 
-//  word position storage
-void pushwordinfo(vector<int> l,vector<int> m){
-    sp.push_back(l);
-    ep.push_back(m);
-}
 
 
 // showing all registers registers 
@@ -607,7 +583,8 @@ bool instructions_checker(string checking){
     }
 
     if(s.size() == e.size()){
-        pushwordinfo(s,e);                                      // storing each work start and end point in line
+        sp.push_back(s);
+        ep.push_back(e);                                    // storing each work start and end point in line
         return true;
     }else {
         debug<<"Something wrong happen!"<<endl;
@@ -730,13 +707,13 @@ int main(){
     cout<<"Full screen your terminal for better experience :-)"<<endl<<endl;
     cout<<"========== Your processor details are given below & it will be used to calculate the arm code run time(total execution time of arm code)========= "<<endl<<"\t \t "<<model<<endl<<"\t \t CPU Frequency: "<<proc<<endl<<endl;
     cout<<"==========Run mode will run code all at once and u can check your code output in output.txt.=============\n ===============Debug mode will run your code instruction by instruction============================"<<endl;
-    cout<<endl<<"Run or Debug??? : ";
+    cout<<endl<<"run or debug??? : ";
     cin>>mode;
     cout<<endl;
     
     // start working
     while((r[15]-1000)/4 < instii_complete.size()){
-        if(remove_space(mode) == "Run" || box_type != ".text"){
+        if(remove_space(mode) == "run" || box_type != ".text"){
             start_instruction(sp.at((r[15]-1000)/4) , ep.at((r[15]-1000)/4) , instii_complete.at((r[15]-1000)/4));    // sending to do work for instruction          
         }else{
             cout<<"To exit from Debug mode type 'q'"<<endl; 
@@ -744,7 +721,7 @@ int main(){
                 start_instruction(sp.at((r[15]-1000)/4) , ep.at((r[15]-1000)/4) , instii_complete.at((r[15]-1000)/4));    // sending to do work for instruction                  
             }
             else 
-                mode = "Run";
+                mode = "run";
         }
     }
 

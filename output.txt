@@ -2847,5 +2847,5 @@ Total cycles completed: 1566
 
 
  Total Instructions executed: 367 	 Total cycles: 1566	 Empty Lines: 10 
- Total Lines: 37 	 Execution Time(s) 0.06754	 Average Instruction per cycle: 0.234355
- Total Execution time of ARM code in your pc according to given latency: 0.681759 Microseconds
+ Total Lines: 37 	 Execution Time(s) 0.071731	 Average Instruction per cycle: 0.234355
+ Total Execution time of ARM code in your pc according to given latency: 0.689868 Microseconds
