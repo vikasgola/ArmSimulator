@@ -677,16 +677,16 @@ int main(){
         inname = "input.txt";
     }
 
-    input.open(inname,ios::in);                // input file
+    input.open("input/" + inname,ios::in);                // input file
     
     if(!input.is_open()){
         cout<<"Please try again with correct input file name.\nBYE!!!"<<endl;
         exit(EXIT_SUCCESS);
     }
 
-    debug.open("debug.txt",ios::out);
-    output.open("output.txt" , ios::out);
-    latency.open("latency.txt",ios::in);
+    debug.open("output/debug.txt",ios::out);
+    output.open("output/output.txt" , ios::out);
+    latency.open("input/latency.txt",ios::in);
     proc_info.open("/proc/cpuinfo",ios::in);
 
     proc_details();

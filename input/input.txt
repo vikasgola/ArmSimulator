@@ -1,8 +1,6 @@
-	.equ SWI_Exit, 0x11
-	
 	.text
 
-	mov r1, #30.00
+	mov r1, #30
 	mov r2, #1
 	ldr r3, =AA	
 
@@ -29,7 +27,7 @@ LoadAddIntegers:
 	swi SWI_Exit		
 
 	.data
-AA:	
+AA:
 .space 30
 	.end
 
