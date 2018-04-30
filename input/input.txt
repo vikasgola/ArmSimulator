@@ -30,4 +30,3 @@ LoadAddIntegers:
 AA:
 .space 30
 	.end
-

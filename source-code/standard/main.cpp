@@ -35,7 +35,7 @@ string mode = "run";
 short int cmp;          // compareble values storage
 vector <string> labels;         // stores labels name of functions
 vector <int> labelsid;          // labels name storage
-int empty =0;                   // counter  for empty lines
+int empty =-1;                   // counter  for empty lines
 int total_instruction = 0;      // total instructions count
 
 vector<vector <int>> sp,ep;     // vectors for storing starting and ending positions of word in each line
@@ -58,6 +58,19 @@ int loop_time = 0;
 int total_cycles = 0;           // total cycles in code
 map <string, int> lat_values,latency_total_instru;
 string proc,model;
+struct pipeline {
+    string instruction;
+    string operation;
+    vector<int> s;
+    vector<int> e;
+    int memory;
+    int operation_type;
+    int memory_offset;
+    int alu_result;
+    int r1 = -123456789,r2 = -123456789,res,c1 = -1,c2 = -1;
+} stages[5];
+
+string pipeline_out;
 
 
 //  ========================= functions declartions start=======================================
@@ -96,6 +109,7 @@ void show_memory(){
     output<<"\t\t\t Memory Addresses: stored Value"<<endl;
     cout<<"\t\t\t Memory Addresses: stored Value"<<endl;
     
+    if(arm_lab.size())
     for(int i =0;i<arm_lab.at(arm_lab.size()-1).end;i++){
         output<<1000000+i*4<<": "<<memory[i]<<"\t\t  ";
         cout<<1000000+i*4<<": "<<memory[i]<<"\t\t  ";
@@ -227,111 +241,6 @@ bool word_seprators(char t){
 }
 
 
-//  addition, substraction, compare , mov and multiplication instruction handling
-void addsubmul(char k,string do_this[]){
-    if(k == '+'){
-        if(do_this[2][0] =='r' && do_this[3][0] =='r' ){
-            r[stoi(do_this[1].substr(1 , do_this[1].length()-1))] = r[stoi(do_this[2].substr(1,do_this[2].length()-1))] + r[stoi(do_this[3].substr(1,do_this[3].length()-1))];    
-        }else if(do_this[2][0] =='#' && do_this[3][0] =='#'){
-            r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = stoi(do_this[2].substr(1,do_this[2].length()-1)) + stoi(do_this[3].substr(1,do_this[3].length()-1));    
-        }else if(do_this[2][0] =='#' && do_this[3][0] =='r'){
-            r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = stoi(do_this[2].substr(1,do_this[2].length()-1)) + r[stoi(do_this[3].substr(1,do_this[3].length()-1))];    
-        }else if(do_this[3][0] =='#' && do_this[2][0] =='r'){
-            r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = r[stoi(do_this[2].substr(1,do_this[2].length()-1))] + stoi(do_this[3].substr(1,do_this[3].length()-1));    
-        }else {
-            error_show(instii_complete.size()+1+ empty,0);
-        }
-    }else if(k == '-'){
-        if(do_this[2][0] =='r' && do_this[3][0] =='r' ){
-            r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = r[stoi(do_this[2].substr(1,do_this[2].length()-1))] - r[stoi(do_this[3].substr(1,do_this[3].length()-1))];    
-        }else if(do_this[2][0] =='#' && do_this[3][0] =='#'){
-            r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = stoi(do_this[2].substr(1,do_this[2].length()-1)) - stoi(do_this[3].substr(1,do_this[3].length()-1));    
-        }else if(do_this[2][0] =='#' && do_this[3][0] =='r'){
-            r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = stoi(do_this[2].substr(1,do_this[2].length()-1)) - r[stoi(do_this[3].substr(1,do_this[3].length()-1))];    
-        }else if(do_this[3][0] =='#' && do_this[2][0] =='r'){
-            r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = r[stoi(do_this[2].substr(1,do_this[2].length()-1))] - stoi(do_this[3].substr(1,do_this[3].length()-1));    
-        }else {
-            error_show(instii_complete.size()+1 + empty,0);            
-        }
-    }else if(k == '*'){
-        if(do_this[2][0] =='r' && do_this[3][0] =='r' ){
-            r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = r[stoi(do_this[2].substr(1,do_this[2].length()-1))] * r[stoi(do_this[3].substr(1,do_this[3].length()-1))];    
-        }else if(do_this[2][0] =='#' && do_this[3][0] =='#'){
-            r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = stoi(do_this[2].substr(1,do_this[2].length()-1)) * stoi(do_this[3].substr(1,do_this[3].length()-1));    
-        }else if(do_this[2][0] =='#' && do_this[3][0] =='r'){
-            r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = stoi(do_this[2].substr(1,do_this[2].length()-1)) * r[stoi(do_this[3].substr(1,do_this[3].length()-1))];    
-        }else if(do_this[3][0] =='#' && do_this[2][0] =='r'){
-            r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = r[stoi(do_this[2].substr(1,do_this[2].length()-1))] * stoi(do_this[3].substr(1,do_this[3].length()-1));    
-        }else {
-            error_show(instii_complete.size()+1+empty,0);            
-        }
-    }else if(k == '='){
-        if(do_this[2][0] =='r'){
-            r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = r[stoi(do_this[2].substr(1,do_this[2].length()-1))];
-        }else if(do_this[2][0] =='#'){
-            r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = stoi(do_this[2].substr(1,do_this[2].length()-1));
-        }else {
-            error_show(instii_complete.size()+1+empty,0);                        
-        }
-    }else if(k == 'c'){
-        if(do_this[2][0] =='r'){
-            cmp = r[stoi(do_this[1].substr(1,do_this[1].length()-1))] - r[stoi(do_this[2].substr(1,do_this[2].length()-1))];
-        }else if(do_this[2][0] =='#'){
-            cmp = r[stoi(do_this[1].substr(1,do_this[1].length()-1))] - stoi(do_this[2].substr(1,do_this[2].length()-1));
-        }else {
-            error_show(instii_complete.size()+1+empty,0);                        
-        }
-    }
-    show_details();
-    debug<<"\t\t\t Do: "<<k<<endl;
-    r[15] = r[15] + 4;
-}
-
-// ldr and str insruction working here
-void ldrstr(char k , string do_this[]){
-    if(k=='l'){
-        if(do_this[2][0] =='=' ){
-            int i;
-            for(i=0;i<arm_lab.size();i++){
-                if(arm_lab.at(i).name == do_this[2].substr(1 , do_this[2].length()-1) ){
-                    break;
-                }
-            }
-            if(i >= arm_lab.size()){
-                message_show("Label Not found!!! or Please write your space or word in next line!!!");
-                exit(EXIT_FAILURE);
-            }else {
-                r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = 1000000 + arm_lab.at(i).start * 4;        // starting address is 1000000
-            }
-            total_cycles+= lat_values.at("ldr_pseudo");
-            latency_total_instru.at("ldr_pseudo") += lat_values.at("ldr_pseudo");                        
-
-        }else if(do_this[2][0] =='[' && do_this[2][do_this[2].length()-1] ==']'){
-            r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = memory[(r[stoi(do_this[2].substr(2,do_this[2].length()-2))] -1000000)/4 ];
-            total_cycles+= lat_values.at("ldr");                        
-        }else if(do_this[2][0] =='[' && do_this[3][do_this[3].length()-1] ==']' && do_this[3][0] =='#'){
-            r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = memory[(r[stoi(do_this[2].substr(2,do_this[2].length()-1)) + stoi(do_this[3].substr(1,do_this[2].length()-1))] -1000000)/4 ];
-            total_cycles+= lat_values.at("ldr");            
-            latency_total_instru.at("ldr") += lat_values.at("ldr");                       
-
-        }else{
-            error_show( (r[15]-1000)/4+1+empty , instii_complete.at((r[15]-1000)/4).length() );                                    
-        }
-    }else if(k == 's'){
-        if(do_this[2][0] =='[' && do_this[2][do_this[2].length()-1] ==']'){
-            memory[(r[stoi(do_this[2].substr(2,do_this[2].length()-2))]-1000000)/4] = r[stoi(do_this[1].substr(1,do_this[1].length()-1))];
-        }else if(do_this[2][0] =='[' && do_this[3][do_this[3].length()-1] ==']' && do_this[3][0] =='#'){
-            memory[(r[stoi(do_this[2].substr(2,do_this[2].length()-2))]-1000000)/4 + stoi(do_this[3].substr(1,do_this[2].length()-1))/4] = r[stoi(do_this[1].substr(1,do_this[1].length()-1))];
-        }else{
-            error_show( (r[15]-1000)/4+1+empty , instii_complete.at((r[15]-1000)/4).length() );                                    
-        }
-    }
-
-    show_details();
-    r[15] = r[15]+4;
-}
-
-
 
 //b, bl, bne and bge instructions handling
 void bnebge(char k , string do_this[]){
@@ -412,70 +321,256 @@ void bnebge(char k , string do_this[]){
 }
 
 
-//  start doing work of each instructions by detacting what instruction is that
-void start_instruction(vector <int> s ,vector <int> e,const string instruc){
+
+// stage1 of pipeline called instruction fetch
+void instructionFetch(vector <int> s ,vector <int> e,const string instruc){
+    pipeline_out="";
+
+    if(!instruc.empty() ){
+        stages[0].instruction = instruc;
+        stages[0].s = s;
+        stages[0].e = e;
+        pipeline_out =  "IF: "+stages[0].instruction+"\n";
+    }else{
+        stages[0].instruction = "";
+        pipeline_out = "IF: Blank\n";
+        
+    }
+
+    show_details();
+    instructionDecode();
+    total_cycles++;    
+    cout<<pipeline_out<<endl;
+    stages[1] = stages[0];
+    // r[15]+=4;
+}
+
+
+// stage 2 of pipeline
+void instructionDecode(){
+   
+
+    if(!stages[1].instruction.empty() ){
+            // different words in different element of array
+        string do_this[stages[1].s.size()];
+        for(int j=0;j<stages[1].s.size();j++){
+            do_this[j] = stages[1].instruction.substr(stages[1].s.at(j) ,stages[1].e.at(j) - stages[1].s.at(j)); // array of readed word from one instruction
+        }
+        // saving operation to operation property
+            stages[1].operation = do_this[0];   
+
+        // decoding the instruction
+        // saving register position of r1 r2 and r3 also constants
+        if(str_is(do_this[0] ,"SUB","sub") || str_is(do_this[0] ,"MUL","mul") || str_is(do_this[0] ,"ADD","add") ){
+            if(do_this[2][0] =='r' && do_this[3][0] =='r' ){
+                stages[1].res =  stoi(do_this[1].substr(1 , do_this[1].length()-1));
+                stages[1].r1 = stoi(do_this[2].substr(1,do_this[2].length()-1));
+                stages[1].r2 = stoi(do_this[3].substr(1,do_this[3].length()-1));
+                stages[1].operation_type = 01;
+            }else if(do_this[2][0] =='#' && do_this[3][0] =='#'){
+                stages[1].res =  stoi(do_this[1].substr(1 , do_this[1].length()-1));
+                stages[1].c1 = stoi(do_this[2].substr(1,do_this[2].length()-1));
+                stages[1].c2 = stoi(do_this[3].substr(1,do_this[3].length()-1));
+                stages[1].operation_type = 02;
+            }else if(do_this[2][0] =='#' && do_this[3][0] =='r'){
+                stages[1].res =  stoi(do_this[1].substr(1 , do_this[1].length()-1));
+                stages[1].c1 = stoi(do_this[2].substr(1,do_this[2].length()-1));
+                stages[1].r2 = stoi(do_this[3].substr(1,do_this[3].length()-1));
+                stages[1].operation_type = 03;                        
+            }else if(do_this[3][0] =='#' && do_this[2][0] =='r'){
+                stages[1].res =  stoi(do_this[1].substr(1 , do_this[1].length()-1));
+                stages[1].r1 = stoi(do_this[2].substr(1,do_this[2].length()-1));
+                stages[1].c2 = stoi(do_this[3].substr(1,do_this[3].length()-1));
+                stages[1].operation_type = 04;
+            }else {
+                error_show(instii_complete.size()+1+ empty,0);
+            }
+        } else if(str_is(do_this[0] ,"CMP","cmp") || str_is(do_this[0] ,"MOV","mov")){
+            if(do_this[2][0] =='r'){
+                stages[1].res = stoi(do_this[1].substr(1,do_this[1].length()-1));
+                stages[1].r1 = stoi(do_this[2].substr(1,do_this[2].length()-1));
+                stages[1].operation_type = 11;            
+            }else if(do_this[2][0] =='#'){
+                stages[1].res = stoi(do_this[1].substr(1,do_this[1].length()-1));  //register position
+                stages[1].c1 = stoi(do_this[2].substr(1,do_this[2].length()-1)); //constants
+                stages[1].operation_type = 12;
+            }else {
+                error_show(instii_complete.size()+1+empty,0);                        
+            }
+        } else if(str_is(do_this[0] ,"str","STR")){
+            if(do_this[2][0] =='[' && do_this[2][do_this[2].length()-1] ==']'){
+                stages[1].memory = (r[stoi(do_this[2].substr(2,do_this[2].length()-2))]-1000000)/4;  //storing memory address
+                stages[1].r1 = stoi(do_this[1].substr(1,do_this[1].length()-1));
+                stages[1].operation_type = 21;
+            }else if(do_this[2][0] =='[' && do_this[3][do_this[3].length()-1] ==']' && do_this[3][0] =='#'){
+                stages[1].memory = (r[stoi(do_this[2].substr(2,do_this[2].length()-2))]-1000000)/4;
+                stages[1].memory_offset = stoi(do_this[3].substr(1,do_this[2].length()-1))/4;
+                stages[1].r1 = stoi(do_this[1].substr(1,do_this[1].length()-1));
+                stages[1].operation_type = 22;
+            }else{
+                error_show( (r[15]-1000)/4+1+empty , instii_complete.at((r[15]-1000)/4).length() );                                    
+            }
+        }else if(str_is(do_this[0],"ldr","LDR")){
+            if(do_this[2][0] =='=' ){
+                int i;
+                for(i=0;i<arm_lab.size();i++){
+                    if(arm_lab.at(i).name == do_this[2].substr(1 , do_this[2].length()-1) ){
+                        break;
+                    }
+                }
+                if(i >= arm_lab.size()){
+                    message_show("Label Not found!!! or Please write your space or word in next line!!!");
+                    exit(EXIT_FAILURE);
+                }else {
+
+                    stages[1].res =  stoi(do_this[1].substr(1,do_this[1].length()-1));
+                    stages[1].c1 = 1000000 + arm_lab.at(i).start * 4;        // starting address is 1000000
+                    stages[1].operation_type = 31;
+                }
+                
+            }else if(do_this[2][0] =='[' && do_this[2][do_this[2].length()-1] ==']'){
+                stages[1].memory = (r[stoi(do_this[2].substr(2,do_this[2].length()-2))]-1000000)/4;
+                stages[1].res = stoi(do_this[1].substr(1,do_this[1].length()-1));
+                stages[1].operation_type = 32;
+                //  r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = memory[(r[stoi(do_this[2].substr(2,do_this[2].length()-2))] -1000000)/4 ];
+            }else if(do_this[2][0] =='[' && do_this[3][do_this[3].length()-1] ==']' && do_this[3][0] =='#'){
+                stages[1].memory = (r[stoi(do_this[2].substr(2,do_this[2].length()-2))]-1000000)/4;
+                stages[1].memory_offset = stoi(do_this[3].substr(1,do_this[2].length()-1))/4;
+                stages[1].res = stoi(do_this[1].substr(1,do_this[1].length()-1));
+                stages[1].operation_type = 33;
+                // r[stoi(do_this[1].substr(1,do_this[1].length()-1))] = memory[(r[stoi(do_this[2].substr(2,do_this[2].length()-1)) + stoi(do_this[3].substr(1,do_this[2].length()-1))] -1000000)/4 ];
+            }else{
+                error_show( (r[15]-1000)/4+1+empty , instii_complete.at((r[15]-1000)/4).length() );                                    
+            }
+        }
+        pipeline_out += "ID: "+stages[1].instruction+"\n";        
+    }else{
+        pipeline_out += "ID: Blank\n";
+        
+    }
+
+    // show_details();    
+    arithmeticLogicUnit();
+    stages[2] = stages[1];
+}
+
+
+void arithmeticLogicUnit(){
+
+    if(!stages[2].instruction.empty() ){
+
+        switch( stages[2].operation_type ){
+            case 01:
+                if(stages[2].r1 == stages[3].res){
+                    stages[2].alu_result = addsubmulcmp(stages[2].operation,stages[3].alu_result,r[stages[2].r2]);
+                }else if(stages[2].r2 == stages[3].res){
+                    stages[2].alu_result = addsubmulcmp(stages[2].operation,r[stages[2].r1],stages[3].alu_result);
+                }else if(stages[2].r1 == stages[4].res){
+                    stages[2].alu_result = addsubmulcmp(stages[2].operation, stages[4].alu_result ,r[stages[2].r2]);
+                }else if(stages[2].r2 == stages[4].res){
+                    stages[2].alu_result = addsubmulcmp(stages[2].operation,r[stages[2].r1],stages[4].alu_result);
+                }else{
+                    stages[2].alu_result = addsubmulcmp(stages[2].operation,r[stages[2].r1],r[stages[2].r2]);
+                }
+                break;
+            case 02:
+                stages[2].alu_result = addsubmulcmp(stages[2].operation,stages[2].c1,stages[2].c2);
+                break;
+            case 03:
+                if(stages[2].r2 == stages[3].res){
+                    stages[2].alu_result = addsubmulcmp(stages[2].operation, stages[2].c1 ,stages[3].alu_result);
+                }else{
+                    stages[2].alu_result = addsubmulcmp(stages[2].operation,stages[2].c1,r[stages[2].r2]);
+                }
+                break;
+            case 04:
+                if(stages[2].r1 == stages[3].res){
+                    stages[2].alu_result = addsubmulcmp(stages[2].operation, stages[3].alu_result ,stages[2].c2);
+                }else{
+                    stages[2].alu_result = addsubmulcmp(stages[2].operation,r[stages[2].r1], stages[2].c2);
+                }
+                break;
+            case 11:
+                stages[2].alu_result = addsubmulcmp("cmp",r[stages[2].res],r[stages[2].r1]);
+                break;
+            case 12:
+                stages[2].alu_result = addsubmulcmp("cmp",r[stages[2].res],stages[2].c1);
+                break;
+            case 22:
+            case 33:
+                stages[2].memory = addsubmulcmp("add",stages[2].memory_offset,stages[2].memory);
+                break;
+            default:
+                error_show( (r[15]-1000)/4+1+empty , instii_complete.at((r[15]-1000)/4).length() );            
+        }
+    
+        pipeline_out += "ALU: "+stages[2].instruction+"\n";
+    }else{
+        pipeline_out += "ALU: Blank\n";      
+    }
+
+    // show_details();    
+    dataMemory();
+
+    stages[3] = stages[2];
+}
+
+
+void dataMemory(){
+
+    if(!stages[3].instruction.empty() ){
+        pipeline_out += "DM: "+stages[3].instruction+"\n";        
+    }else{
+        pipeline_out += "DM: Blank\n";
+        
+    }
+    writeBack();
+    // show_details();
+    stages[4] = stages[3];
+}
+
+void writeBack(){
+    
+    if(!stages[4].instruction.empty() ){
+        switch((stages[4].operation_type - (stages[4].operation_type)%10)/10){
+            case 0:
+                r[stages[4].res] = stages[4].alu_result;
+                break;
+        }
+        pipeline_out += "WB: "+stages[4].instruction+"\n";        
+    }else{
+        pipeline_out += "WB: Blank\n";       
+    }
+    
+}
+
+int addsubmulcmp(string k ,int r1 ,int r2){
+    if(str_is(k ,"add","ADD")){
+        return r1 + r2;
+    }else if(str_is(k ,"sub","SUB")){
+        return r1 - r2;        
+    }else if(str_is(k ,"mul","MUL")){
+        return r1 - r2;        
+    }else if(str_is(k ,"cmp","CMP")){
+        return r1 - r2;        
+    }
+
+    return -1;
+}
+
+
+bool not_instructions(vector <int> s ,vector <int> e,const string instruc){
+    
     string do_this[s.size()];
+    
     for(int j=0;j<s.size();j++){
         do_this[j] = instruc.substr(s.at(j) ,e.at(j) - s.at(j)); // array of readed word from one instruction
     }
 
-    debug<<"Line "<<r[15]<<": "<<instruc<<endl;      // printing each detected word in debug file.
-    
-    // box type is text
     if(box_type == ".text" && do_this[0] != ".data" && do_this[0] != ".end" ){
         total_instruction++;
-
-        if(str_is(do_this[0] ,"swi","SWI")){                    // swi exit
-            if(do_this[1] == "SWI_Exit" ){
-                show_details();
-                bye();
-            }
-            r[15] = r[15] + 4;
-        }else if(str_is(do_this[0] ,"ADD","add")){
-            total_cycles+= lat_values.at("add");
-            latency_total_instru.at("add") += lat_values.at("add");
-            addsubmul('+',do_this);                                 // add instruction work
-        }else if(str_is(do_this[0] ,"SUB","sub")){
-            total_cycles+= lat_values.at("sub");            
-            latency_total_instru.at("sub") += lat_values.at("sub");            
-            addsubmul('-',do_this);                                 // sub instruction work
-        }else if(str_is(do_this[0] ,"MUL","mul")){
-            total_cycles+= lat_values.at("mul");            
-            latency_total_instru.at("mul") += lat_values.at("mul");                        
-            addsubmul('*',do_this);                                  // mul instruction work
-        }else if(str_is(do_this[0],"MOV","mov")){
-            total_cycles+= lat_values.at("mov");            
-            latency_total_instru.at("mov") += lat_values.at("mov");                        
-            addsubmul('=',do_this);                                 // mov instruction work
-        }else if(str_is(do_this[0],"CMP","cmp")){
-            total_cycles+= lat_values.at("cmp");            
-            latency_total_instru.at("cmp") += lat_values.at("cmp");                        
-            addsubmul('c',do_this);                                 // cmp instruction work
-        }else if(str_is(do_this[0],"bne","BNE")){
-            total_cycles+= lat_values.at("bne");            
-            latency_total_instru.at("bne") += lat_values.at("bne");                        
-            bnebge('n',do_this);
-        }else if(str_is(do_this[0],"bge","BGE")){
-            total_cycles+= lat_values.at("bge");            
-            latency_total_instru.at("bge") += lat_values.at("bge");                        
-            bnebge('g',do_this);
-        }else if(str_is(do_this[0],"ldr","LDR")){
-            ldrstr('l',do_this);
-        }else if(str_is(do_this[0],"str","STR")){
-            total_cycles+= lat_values.at("str");            
-            latency_total_instru.at("str") += lat_values.at("str");                        
-            ldrstr('s',do_this);
-        }else if(str_is(do_this[0],"b","B")){
-            total_cycles+= lat_values.at("b");            
-            latency_total_instru.at("b") += lat_values.at("b");                        
-            bnebge('b',do_this);
-        }else if(str_is(do_this[0],"bl","BL")){
-            total_cycles+= lat_values.at("bl");            
-            latency_total_instru.at("bl") += lat_values.at("bl");                        
-            bnebge('l',do_this);
-        }else if( do_this[0][do_this[0].length()-1] ==':'){
+        if( do_this[0][do_this[0].length()-1] ==':'){
             total_instruction--;
-
             if(s.size()==1){
                 labels.push_back(do_this[0].substr(0,do_this[0].length()-1) );          //labels names saving 
                 labelsid.push_back(r[15]);                                              // saving there id's
@@ -483,20 +578,17 @@ void start_instruction(vector <int> s ,vector <int> e,const string instruc){
                 message_show("\tPlease write your space or word in next line!!!");
                 exit(EXIT_FAILURE);
             }
-
             r[15] = r[15] +4;
-        
+        }else if(do_this[0][do_this[0].length()-1] !=':'){
+            return false;
         }else{
             // error --------------------- show
             cout<<"Error at: "<<1 + (r[15]-1000)/4<<"\n In : "<<instruc<<endl<<"\t\t at "<<do_this[0]<<endl;
-            exit(EXIT_FAILURE); 
-
-            // show_details();
-            // r[15] = r[15] + 4;            
-        }
-    
+            exit(EXIT_FAILURE);    
+        }    
     }else if(box_type == ".data" && do_this[0] != ".text" && do_this[0] != ".end" ){
-        
+
+
         if( do_this[0][do_this[0].length()-1] ==':'){
             if(s.size()==1){
                 labels.push_back(do_this[0].substr(0,do_this[0].length()-1) );          //labels names saving 
@@ -504,8 +596,6 @@ void start_instruction(vector <int> s ,vector <int> e,const string instruc){
             }
         }else if(do_this[0] == ".space"){
     
-            // total_instruction++;
-
             if(arm_lab.size()!=0){       
                 arm_array a(labels.at(labels.size()-1), arm_lab.at(arm_lab.size()-1).end ,arm_lab.at(arm_lab.size()-1).end+stoi(do_this[1]));    // making space for data
                 arm_lab.push_back(a);                
@@ -519,14 +609,12 @@ void start_instruction(vector <int> s ,vector <int> e,const string instruc){
         r[15] = r[15] + 4;         
         
     }else if(do_this[0][0] == '.' ){                                    // change box type 
-
         if(do_this[0] == ".equ" ){
             //    here equ like instruction
         }else if(do_this[0] == ".text" ){
             if(box_type!= ".data"){
                 box_type = ".data";
                 ptrdiff_t here = distance(instii_complete.begin() , find(instii_complete.begin(),instii_complete.end(),".data"));
-            
                 if(here != instii_complete.size() )
                     r[15] = 1000 + 4 *here;
                 else
@@ -538,24 +626,21 @@ void start_instruction(vector <int> s ,vector <int> e,const string instruc){
             box_type = ".data";
         }else if(do_this[0] == ".end" && box_type == ".data"){
             ptrdiff_t here = distance(instii_complete.begin() , find(instii_complete.begin(),instii_complete.end(),".text"));
-            r[15] = 1000 + 4 *here;
+            r[15] = 1000 + 4*here;
             box_type = ".text";
         }else if(do_this[0] == ".end" && box_type == ".text"){
             bye();
         }
         r[15] = r[15]+4; 
     }else{
-
         // error --------------------- show
         cout<<"Source of error can be '.text'"<<endl;
         cout<<"Error at: "<<1 + (r[15]-1000)/4<<"\n In : "<<instruc<<endl<<"\t\t at "<<do_this[0]<<endl;
         exit(EXIT_FAILURE); 
-        
-        // show_details();
-        // r[15] = r[15]+4;
     }
-}
 
+    return true;
+}
 
 //  seprating words from each instruction line and checking for errors
 bool instructions_checker(string checking){
@@ -590,7 +675,6 @@ bool instructions_checker(string checking){
     }
 }
 
-
 // removing unncesary extra space
 string remove_space(string correct){
     if(correct.empty()){
@@ -602,8 +686,6 @@ string remove_space(string correct){
         return correct;
     }
 }
-
-
 //  start reading input file from here
 bool fileread(){
     // int t = 0;
@@ -627,7 +709,6 @@ bool fileread(){
     }
     return true;
 }
-
 
 bool latfile(){
 
@@ -712,18 +793,46 @@ int main(){
     
     // start working
     while((r[15]-1000)/4 < instii_complete.size()){
-        if(remove_space(mode) == "run" || box_type != ".text"){
-            start_instruction(sp.at((r[15]-1000)/4) , ep.at((r[15]-1000)/4) , instii_complete.at((r[15]-1000)/4));    // sending to do work for instruction          
+        cout<<(r[15]-1000)/4<<": "+instii_complete.at((r[15]-1000)/4)<<endl;
+        
+        // checking for not instructions and not sending them to pipeline
+        if(not_instructions(sp.at((r[15]-1000)/4) , ep.at((r[15]-1000)/4) , instii_complete.at((r[15]-1000)/4))){
+            continue;
+        }else if(remove_space(mode) == "run" || box_type != ".text"){
+            // sending to instruction fetch stage of pipeline
+            instructionFetch(sp.at((r[15]-1000)/4) , ep.at((r[15]-1000)/4) , instii_complete.at((r[15]-1000)/4));
+            r[15]+=4;    
         }else{
             cout<<"To exit from Debug mode type 'q'"<<endl; 
             if(getchar() != 'q'){
-                start_instruction(sp.at((r[15]-1000)/4) , ep.at((r[15]-1000)/4) , instii_complete.at((r[15]-1000)/4));    // sending to do work for instruction                  
+                instructionFetch(sp.at((r[15]-1000)/4) , ep.at((r[15]-1000)/4) , instii_complete.at((r[15]-1000)/4));
+                r[15]+=4;    
+            }
+            else 
+                mode = "run";
+        }
+        
+    }
+
+    int i=5;
+    instii_complete.push_back("");
+    while(i--){
+        if(remove_space(mode) == "run" || box_type != ".text"){
+            // sending to instruction fetch stage of pipeline
+            instructionFetch(sp.at(0),ep.at(0),"");
+        }else{
+            cout<<"To exit from Debug mode type 'q'"<<endl; 
+            if(getchar() != 'q'){
+                instructionFetch(sp.at(0),ep.at(0),"");
             }
             else 
                 mode = "run";
         }
     }
+    getchar();
 
+    instii_complete.pop_back();
+    total_cycles--;
     bye();
 
     cout<<"Warning:--- There was no swi_exit also not .end \n It might create an error in future."<<endl;

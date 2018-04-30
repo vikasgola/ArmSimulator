@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "Select version:\n\t 1.Basic \n\t 2.Pro(without gui) \n\t 3.Pro(with gui)\n(1/2/3): \b"
+echo -e "Select version:\n\t 1.Basic \n\t 2.Standard \n\t 3.Pro(with gui)\n(1/2/3): \b"
 read version
 
 version_name=""
@@ -11,10 +11,10 @@ if [[ version -eq 1 ]]; then
     g++ source-code/basic/main.cpp -std=c++11 -o Basic-simulator
     version_name="Basic-simulator"
 else if [[ version -eq 2 ]];then
-    rm Pro-without-GUI
+    rm standard
     echo "Compiling..."
-    g++ source-code/pro\(without-gui\)/main.cpp -std=c++11 -o Pro-without-GUI
-    version_name="Pro-without-GUI"
+    g++ source-code/standard/main.cpp -std=c++11 -o standard
+    version_name="standard"
     else if [[ version -eq 3 ]]; then
         rm Pro
         echo "Compiling..."
