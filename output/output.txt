@@ -1,55 +1,70 @@
-1004: add r3, r3, #4	
+				=========== 1004: add r3, r3, #4	 ===========
 	r0 = 0 | r1 = 0 | r2 = 0 | r3 = 0 | r4 = 0 | r5 = 0 | r6 = 0 | r7 = 0 | 
 	r8 = 0 | r9 = 0 | r10 = 0 | r11 = 0 | r12 = 0 | r13 = 0 | r14(lr) = 0 | r15(pc) = 1008 
-Total cycles completed: 0
+	Total cycles completed: 0
 
 
-1008: add r2, r3, #1
+				=========== 1008: add r2, r3, #1 ===========
 	r0 = 0 | r1 = 0 | r2 = 0 | r3 = 0 | r4 = 0 | r5 = 0 | r6 = 0 | r7 = 0 | 
 	r8 = 0 | r9 = 0 | r10 = 0 | r11 = 0 | r12 = 0 | r13 = 0 | r14(lr) = 0 | r15(pc) = 1012 
-Total cycles completed: 1
+	Total cycles completed: 1
 
 
-1012: sub r4 , r5 , #421
+				=========== 1012: sub r4 , r5 , #421 ===========
 	r0 = 0 | r1 = 0 | r2 = 0 | r3 = 0 | r4 = 0 | r5 = 0 | r6 = 0 | r7 = 0 | 
 	r8 = 0 | r9 = 0 | r10 = 0 | r11 = 0 | r12 = 0 | r13 = 0 | r14(lr) = 0 | r15(pc) = 1016 
-Total cycles completed: 2
+	Total cycles completed: 2
 
 
-1016: mul r6, r7 , r8
+				=========== 1016: mul r6, r7 , r8 ===========
 	r0 = 0 | r1 = 0 | r2 = 0 | r3 = 0 | r4 = 0 | r5 = 0 | r6 = 0 | r7 = 0 | 
 	r8 = 0 | r9 = 0 | r10 = 0 | r11 = 0 | r12 = 0 | r13 = 0 | r14(lr) = 0 | r15(pc) = 1020 
-Total cycles completed: 3
+	Total cycles completed: 3
 
 
-1020: 
+				=========== 1020: ldr r8 ,=AA ===========
+			 Memory Addresses: stored Value
+1000000: 0		  1000004: 0		  1000008: 0		  1000012: 0		  1000016: 0		  
+1000020: 0		  1000024: 0		  1000028: 0		  1000032: 0		  1000036: 0		  
+1000040: 0		  1000044: 0		  1000048: 0		  1000052: 0		  1000056: 0		  
+1000060: 0		  1000064: 0		  1000068: 0		  1000072: 0		  1000076: 0		  
+1000080: 0		  1000084: 0		  1000088: 0		  1000092: 0		  1000096: 0		  
+1000100: 0		  1000104: 0		  1000108: 0		  1000112: 0		  1000116: 0		  
+
+
 	r0 = 0 | r1 = 0 | r2 = 0 | r3 = 0 | r4 = 0 | r5 = 0 | r6 = 0 | r7 = 0 | 
 	r8 = 0 | r9 = 0 | r10 = 0 | r11 = 0 | r12 = 0 | r13 = 0 | r14(lr) = 0 | r15(pc) = 1024 
-Total cycles completed: 4
+	Total cycles completed: 4
 
 
-1020: 
+				=========== 1024: Exiting ===========
 	r0 = 0 | r1 = 0 | r2 = 0 | r3 = 4 | r4 = 0 | r5 = 0 | r6 = 0 | r7 = 0 | 
-	r8 = 0 | r9 = 0 | r10 = 0 | r11 = 0 | r12 = 0 | r13 = 0 | r14(lr) = 0 | r15(pc) = 1024 
-Total cycles completed: 5
+	r8 = 0 | r9 = 0 | r10 = 0 | r11 = 0 | r12 = 0 | r13 = 0 | r14(lr) = 0 | r15(pc) = 1028 
+	Total cycles completed: 5
 
 
-1020: 
+				=========== 1024: Exiting ===========
 	r0 = 0 | r1 = 0 | r2 = 5 | r3 = 4 | r4 = 0 | r5 = 0 | r6 = 0 | r7 = 0 | 
-	r8 = 0 | r9 = 0 | r10 = 0 | r11 = 0 | r12 = 0 | r13 = 0 | r14(lr) = 0 | r15(pc) = 1024 
-Total cycles completed: 6
+	r8 = 0 | r9 = 0 | r10 = 0 | r11 = 0 | r12 = 0 | r13 = 0 | r14(lr) = 0 | r15(pc) = 1028 
+	Total cycles completed: 6
 
 
-1020: 
+				=========== 1024: Exiting ===========
 	r0 = 0 | r1 = 0 | r2 = 5 | r3 = 4 | r4 = -421 | r5 = 0 | r6 = 0 | r7 = 0 | 
-	r8 = 0 | r9 = 0 | r10 = 0 | r11 = 0 | r12 = 0 | r13 = 0 | r14(lr) = 0 | r15(pc) = 1024 
-Total cycles completed: 7
+	r8 = 0 | r9 = 0 | r10 = 0 | r11 = 0 | r12 = 0 | r13 = 0 | r14(lr) = 0 | r15(pc) = 1028 
+	Total cycles completed: 7
 
 
-1020: 
+				=========== 1024: Exiting ===========
 	r0 = 0 | r1 = 0 | r2 = 5 | r3 = 4 | r4 = -421 | r5 = 0 | r6 = 0 | r7 = 0 | 
-	r8 = 0 | r9 = 0 | r10 = 0 | r11 = 0 | r12 = 0 | r13 = 0 | r14(lr) = 0 | r15(pc) = 1024 
-Total cycles completed: 8
+	r8 = 0 | r9 = 0 | r10 = 0 | r11 = 0 | r12 = 0 | r13 = 0 | r14(lr) = 0 | r15(pc) = 1028 
+	Total cycles completed: 8
+
+
+				=========== 1024: Exiting ===========
+	r0 = 0 | r1 = 0 | r2 = 5 | r3 = 4 | r4 = -421 | r5 = 0 | r6 = 0 | r7 = 0 | 
+	r8 = 1000000 | r9 = 0 | r10 = 0 | r11 = 0 | r12 = 0 | r13 = 0 | r14(lr) = 0 | r15(pc) = 1028 
+	Total cycles completed: 9
 
 
 	 	 	 	 ===========Summary===========
@@ -67,13 +82,19 @@ Total cycles completed: 8
 	 str_pseudo : 0 cycles 	 & 0 times
 	 sub : 0 cycles 	 & 0 times
 			 Memory Addresses: stored Value
+1000000: 0		  1000004: 0		  1000008: 0		  1000012: 0		  1000016: 0		  
+1000020: 0		  1000024: 0		  1000028: 0		  1000032: 0		  1000036: 0		  
+1000040: 0		  1000044: 0		  1000048: 0		  1000052: 0		  1000056: 0		  
+1000060: 0		  1000064: 0		  1000068: 0		  1000072: 0		  1000076: 0		  
+1000080: 0		  1000084: 0		  1000088: 0		  1000092: 0		  1000096: 0		  
+1000100: 0		  1000104: 0		  1000108: 0		  1000112: 0		  1000116: 0		  
 
 
 	r0 = 0 | r1 = 0 | r2 = 5 | r3 = 4 | r4 = -421 | r5 = 0 | r6 = 0 | r7 = 0 | 
-	r8 = 0 | r9 = 0 | r10 = 0 | r11 = 0 | r12 = 0 | r13 = 0 | r14(lr) = 0 | r15(pc) = 1024 
-Total cycles completed: 8
+	r8 = 1000000 | r9 = 0 | r10 = 0 | r11 = 0 | r12 = 0 | r13 = 0 | r14(lr) = 0 | r15(pc) = 1028 
+	Total cycles completed: 9
 
 
- Total Instructions executed: 4 	 Total cycles: 8	 Empty Lines: 0 
- Total Lines: 5 	 Execution Time(s) 0.012769	 Average Instruction per cycle: 0.5
- Total Execution time of ARM code in your pc according to given latency: 0.0142857 Microseconds
+ Total Instructions executed: 5 	 Total cycles: 9	 Empty Lines: 3 
+ Total Lines: 12 	 Execution Time(s) 0.014661	 Average Instruction per cycle: 0.555556
+ Total Execution time of ARM code in your pc according to given latency: 0.0138249 Microseconds

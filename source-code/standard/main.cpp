@@ -28,7 +28,7 @@ vector <string> instii_complete;    // stores all lines of code(but not empty li
 fstream input , debug , output,latency,proc_info;                // input file is code and debug file is for debugging
 int r[16];               // assuming intial value of all registers to 0.
     
-int memory[100],pause;         // memory of 100 words
+int memory[10000],pause;         // memory of 100 words
 bool cmp_result,lat = true;        // storing result of cmp instruction for next instruction
 string mode = "run";
 
@@ -94,13 +94,13 @@ void show_register(){
     output<<"r14(lr) = "<<r[14]<<" | ";
     output<<"r15(pc) = "<<r[15]+4<<" ";
     output<<endl;
-    output<<"Total cycles completed: "<<total_cycles;
+    output<<"\tTotal cycles completed: "<<total_cycles;
     output<<endl<<endl<<endl;
 
     cout<<"r14(lr) = "<<r[14]<<" | ";
     cout<<"r15(pc) = "<<r[15]+4<<" ";
     cout<<endl;
-    cout<<"Total cycles completed: "<<total_cycles;
+    cout<<"\tTotal cycles completed: "<<total_cycles;
     cout<<endl<<endl<<endl;
 }
 
@@ -114,7 +114,7 @@ void show_memory(){
         output<<1000000+i*4<<": "<<memory[i]<<"\t\t  ";
         cout<<1000000+i*4<<": "<<memory[i]<<"\t\t  ";
         
-        if(i%5 == 0){
+        if(i%5 == 4 && i != 0){
             output<<endl;
             cout<<endl;
         }                       
@@ -155,8 +155,8 @@ void error_show(int row,int col){
 
 // shows the registers and memories after each instruction
 void show_details(){
-        output<<r[15]<<": "<<instii_complete.at((r[15]-1000)/4)<<endl;
-        cout<<r[15]<<": "<<instii_complete.at((r[15]-1000)/4)<<endl;
+        output<<"\t\t\t\t=========== "<<r[15]<<": "<<instii_complete.at((r[15]-1000)/4)<<" ==========="<<endl;
+        cout<<"\t\t\t\t=========== "<<r[15]<<": "<<instii_complete.at((r[15]-1000)/4)<<" ============"<<endl;
         
         if(str_is(instii_complete.at((r[15]-1000)/4 ).substr(0,3),"bne","BNE") || str_is(instii_complete.at((r[15]-1000)/4).substr(0,3),"bge","BGE")){
             show_cmp_result();                                                                      // showing compare result only if there is any cmp
@@ -324,23 +324,23 @@ void bnebge(char k , string do_this[]){
 
 // stage1 of pipeline called instruction fetch
 void instructionFetch(vector <int> s ,vector <int> e,const string instruc){
-    pipeline_out="";
+    pipeline_out="\t\t\t\t\t ==Pipeline==\n";
 
     if(!instruc.empty() ){
         stages[0].instruction = instruc;
         stages[0].s = s;
         stages[0].e = e;
-        pipeline_out =  "IF: "+stages[0].instruction+"\n";
+        pipeline_out +=  "\t\t IF: "+stages[0].instruction+"\n";
     }else{
         stages[0].instruction = "";
-        pipeline_out = "IF: Blank\n";
+        pipeline_out += "\t\t IF: Blank\n";
         
     }
 
     show_details();
     instructionDecode();
     total_cycles++;    
-    cout<<pipeline_out<<endl;
+    cout<<pipeline_out<<endl<<endl<<endl;
     stages[1] = stages[0];
     // r[15]+=4;
 }
@@ -443,13 +443,12 @@ void instructionDecode(){
                 error_show( (r[15]-1000)/4+1+empty , instii_complete.at((r[15]-1000)/4).length() );                                    
             }
         }
-        pipeline_out += "ID: "+stages[1].instruction+"\n";        
+        pipeline_out += "\t\t ID: "+stages[1].instruction+"\n";        
     }else{
-        pipeline_out += "ID: Blank\n";
+        pipeline_out += "\t\t ID: Blank\n";
         
     }
 
-    // show_details();    
     arithmeticLogicUnit();
     stages[2] = stages[1];
 }
@@ -499,17 +498,14 @@ void arithmeticLogicUnit(){
             case 22:
             case 33:
                 stages[2].memory = addsubmulcmp("add",stages[2].memory_offset,stages[2].memory);
-                break;
-            default:
-                error_show( (r[15]-1000)/4+1+empty , instii_complete.at((r[15]-1000)/4).length() );            
+                break;          
         }
     
-        pipeline_out += "ALU: "+stages[2].instruction+"\n";
+        pipeline_out += "\t\t ALU: "+stages[2].instruction+"\n";
     }else{
-        pipeline_out += "ALU: Blank\n";      
+        pipeline_out += "\t\t ALU: Blank\n";      
     }
 
-    // show_details();    
     dataMemory();
 
     stages[3] = stages[2];
@@ -519,9 +515,17 @@ void arithmeticLogicUnit(){
 void dataMemory(){
 
     if(!stages[3].instruction.empty() ){
-        pipeline_out += "DM: "+stages[3].instruction+"\n";        
+        switch(stages[3].operation_type){
+            case 32:
+            case 33:
+                stages[3].alu_result = memory[stages[3].memory];
+                break;
+            case 31:
+                stages[3].alu_result = stages[3].c1;
+        }
+        pipeline_out += "\t\t DM: "+stages[3].instruction+"\n";        
     }else{
-        pipeline_out += "DM: Blank\n";
+        pipeline_out += "\t\t DM: Blank\n";
         
     }
     writeBack();
@@ -534,12 +538,13 @@ void writeBack(){
     if(!stages[4].instruction.empty() ){
         switch((stages[4].operation_type - (stages[4].operation_type)%10)/10){
             case 0:
+            case 3:
                 r[stages[4].res] = stages[4].alu_result;
                 break;
         }
-        pipeline_out += "WB: "+stages[4].instruction+"\n";        
+        pipeline_out += "\t\t WB: "+stages[4].instruction+"\n";        
     }else{
-        pipeline_out += "WB: Blank\n";       
+        pipeline_out += "\t\t WB: Blank\n";       
     }
     
 }
@@ -569,7 +574,14 @@ bool not_instructions(vector <int> s ,vector <int> e,const string instruc){
 
     if(box_type == ".text" && do_this[0] != ".data" && do_this[0] != ".end" ){
         total_instruction++;
-        if( do_this[0][do_this[0].length()-1] ==':'){
+        if(str_is(do_this[0] ,"swi","SWI")){                    // swi exit
+            if(do_this[1] == "SWI_Exit" ){
+                total_instruction--;
+                // r[15] = r[15] - 4;                
+                exitingProgram();
+            }
+            r[15] = r[15] + 4;
+        }if( do_this[0][do_this[0].length()-1] ==':'){
             total_instruction--;
             if(s.size()==1){
                 labels.push_back(do_this[0].substr(0,do_this[0].length()-1) );          //labels names saving 
@@ -623,7 +635,11 @@ bool not_instructions(vector <int> s ,vector <int> e,const string instruc){
                 box_type = ".text";
 
         }else if(do_this[0] == ".data" ){                       // always doing work first with .data
-            box_type = ".data";
+             if(box_type == ".text" ){
+                exitingProgram();              
+             }else{
+                box_type = ".data";                 
+             }
         }else if(do_this[0] == ".end" && box_type == ".data"){
             ptrdiff_t here = distance(instii_complete.begin() , find(instii_complete.begin(),instii_complete.end(),".text"));
             r[15] = 1000 + 4*here;
@@ -789,12 +805,11 @@ int main(){
     cout<<"==========Run mode will run code all at once and u can check your code output in output.txt.=============\n ===============Debug mode will run your code instruction by instruction============================"<<endl;
     cout<<endl<<"run or debug??? : ";
     cin>>mode;
-    cout<<endl;
+    cout<<endl<<endl<<endl;
     
     // start working
     while((r[15]-1000)/4 < instii_complete.size()){
-        cout<<(r[15]-1000)/4<<": "+instii_complete.at((r[15]-1000)/4)<<endl;
-        
+        // cout<<(r[15]-1000)/4<<": "+instii_complete.at((r[15]-1000)/4)<<endl;
         // checking for not instructions and not sending them to pipeline
         if(not_instructions(sp.at((r[15]-1000)/4) , ep.at((r[15]-1000)/4) , instii_complete.at((r[15]-1000)/4))){
             continue;
@@ -814,8 +829,15 @@ int main(){
         
     }
 
-    int i=5;
-    instii_complete.push_back("");
+
+    return 0;
+}
+
+
+void exitingProgram(){
+        int i=5;
+    instii_complete.at((r[15] - 1000)/4) = "Exiting";
+    // r[15] = 1000 + instii_complete.size()*4 - 4;
     while(i--){
         if(remove_space(mode) == "run" || box_type != ".text"){
             // sending to instruction fetch stage of pipeline
@@ -837,5 +859,4 @@ int main(){
 
     cout<<"Warning:--- There was no swi_exit also not .end \n It might create an error in future."<<endl;
 
-    return 0;
 }

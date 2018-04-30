@@ -3,3 +3,11 @@
 	add r2, r3, #1
 	sub r4 , r5 , #421
 	mul r6, r7 , r8
+	ldr r8 ,=AA
+
+.data
+
+AA: 
+.space 30
+
+.end

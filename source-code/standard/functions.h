@@ -34,5 +34,6 @@ void arithmeticLogicUnit();
 void dataMemory();
 int addsubmulcmp(string k ,int r1 ,int r2);
 void writeBack();
+void exitingProgram();
 
 #endif

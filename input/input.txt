@@ -24,7 +24,7 @@ LoadAddIntegers:
 	cmp r1, #0        	
 	bne LoadAddIntegers
 		
-	swi SWI_Exit		
+	swi SWI_Exit
 
 	.data
 AA:
